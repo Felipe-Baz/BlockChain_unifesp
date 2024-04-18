@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
+
 pragma solidity ^0.8.0;
 
 contract SupplyChain { 
@@ -68,6 +69,7 @@ contract SupplyChain {
     }
 
     function updateQuantity(uint256 _orderID, uint256 _newAmount) public {
+        require(orders[_orderID].state == SupplyChainState.Created, "Invalid order state");
         orders[_orderID].amount = _newAmount;
         emit QuantityUpdated(_orderID, _newAmount);
     }
