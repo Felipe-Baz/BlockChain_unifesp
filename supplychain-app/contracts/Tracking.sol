@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-contract SupplyChain { 
+contract Tracking { 
     enum ShipmentStatus { 
         PENDING, 
         IN_TRANSIT,
