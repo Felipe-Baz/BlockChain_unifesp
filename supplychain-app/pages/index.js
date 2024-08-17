@@ -7,9 +7,9 @@ import {
     Profile,
     CompleteShipment,
     GetShipment,
-    StarShipment,
+    StartShipment,
 } from "../Components/index";
-import { TrackingContext } from "../context/TrackingContext";
+import { TrackingContext } from '../context/Tracking';
 
 const index = () => {
     const {
@@ -70,10 +70,10 @@ const index = () => {
                 setGetModel={setGetModel}
                 GetShipment={GetShipment}
             />
-            <StarShipment
+            <StartShipment
                 startModal={startModal}
                 setStartModal={setStartModal}
-                StarShipment={StartShipment}
+                StartShipment={StartShipment}
             />
         </>
     );
