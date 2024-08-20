@@ -13,13 +13,15 @@ import { TrackingContext } from '../context/Tracking';
 
 const index = () => {
     const {
-        currentUser,
+        connectWallet,
         createShipment,
         getAllShipment,
-        CompleteShipment,
-        GetShipment,
-        StartShipment,
+        completeShipments,
+        getShipment,
+        startShipment,
         getShipmentsCount,
+        DappName,
+        currentUser,
     } = useContext(TrackingContext);
 
     const [createShipmentModel, setCreateShipmentModel] = useState(false);
@@ -27,7 +29,7 @@ const index = () => {
     const [startModal, setStartModal] = useState(false);
     const [completeModal, setCompleteModal] = useState(false);
     const [getModel, setGetModel] = useState(false);
-    const [allShipmentsdata, setallShipmentsdata] = useState();
+    const [allShipmentsdata, setallShipmentsdata] = useState(false);
 
     useEffect(() => {
         const getCampaignsData = getAllShipment();
@@ -63,7 +65,7 @@ const index = () => {
             <CompleteShipment
                 completeModal={completeModal}
                 setCompleteModal={setCompleteModal}
-                CompleteShipment={CompleteShipment}
+                CompleteShipment={completeShipments}
             />
             <GetShipment
                 getModel={getModel}

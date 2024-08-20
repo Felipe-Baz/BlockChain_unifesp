@@ -28,7 +28,8 @@ export default ({
         },
     ];
 
-    const OpenModelBox = (text) => {
+    const  OpenModelBox = (text) => {
+        console.log(text);
         if (text === 1) {
             setCompleteModal(true);
         } else if (text === 2){
@@ -39,6 +40,7 @@ export default ({
             setOpenProfile(true);
         }
     };
+
     return (
         <section className="py-0 pb-14">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">

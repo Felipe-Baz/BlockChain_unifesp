@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 
 // INTERNAL IMPORT 
 import tracking from "../context/Tracking.json";
-const ContractAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+const ContractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 const ContractABI = tracking.abi;
 
 const fetchContract = 
@@ -65,7 +65,7 @@ export const TrackingProvider = ({ children }) => {
         }
     };
 
-    const getShipmentCount = async () => {
+    const getShipmentsCount = async () => {
         try {
             if(!window.ethereum) return "Install metamask";
 
@@ -213,7 +213,7 @@ export const TrackingProvider = ({ children }) => {
                 completeShipment,
                 getShipment,
                 startShipment,
-                getShipmentCount,
+                getShipmentsCount,
                 DappName,
                 currentUser,
             }}

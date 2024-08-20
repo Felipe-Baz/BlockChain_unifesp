@@ -1,6 +1,6 @@
-export default ({ setCreateShipmentModel, allShipmentsdata }) => {
-  const converTime = (time) => {
-    const newTime = newDate(time);
+export default function ShipmentTable({ setCreateShipmentModel, allShipmentsdata }) {
+  const convertTime = (time) => {
+    const newTime = new Date(time);
     const dataTime = new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "2-digit",
@@ -9,9 +9,8 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
 
     return dataTime;
   };
-  console.log(allShipmentsdata);
 
-  return(
+  return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="items-start justify-between md:flex">
         <div className="max-w-lg">
@@ -19,48 +18,31 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
             Create Tracking
           </h3>
           <p className="text-gray-600 mt-2">
-            Sei la o que colocar aqui
+            Sei lá o que colocar aqui
           </p>
         </div>
         <div className="mt-3 md:mt-0">
-          <p
+          <button
             onClick={() => setCreateShipmentModel(true)}
-            href="javascript:void(0)"
-            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 md:tex-sm rounded-lg md:inline-flex">
+            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 md:tex-sm rounded-lg">
             Add Tracking
-          </p>
+          </button>
         </div>
       </div>
       <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
         <table className="w-full table-auto text-sm text-left">
-          <thread className="bg-gray-50 text-gray-600 font-medium border-b">
+          <thead className="bg-gray-50 text-gray-600 font-medium border-b">
             <tr>
-              <th className="py-3 px-6">
-                Sender
-              </th>
-              <th className="py-3 px-6">
-                Receiver
-              </th>
-              <th className="py-3 px-6">
-                PickupTime
-              </th>
-              <th className="py-3 px-6">
-                Distance
-              </th>
-              <th className="py-3 px-6">
-                Price
-              </th>
-              <th className="py-3 px-6">
-                Delivery Time
-              </th>
-              <th className="py-3 px-6">
-                Paid
-              </th>
-              <th className="py-3 px-6">
-                Status
-              </th>
+              <th className="py-3 px-6">Sender</th>
+              <th className="py-3 px-6">Receiver</th>
+              <th className="py-3 px-6">Pickup Time</th>
+              <th className="py-3 px-6">Distance</th>
+              <th className="py-3 px-6">Price</th>
+              <th className="py-3 px-6">Delivery Time</th>
+              <th className="py-3 px-6">Paid</th>
+              <th className="py-3 px-6">Status</th>
             </tr>
-          </thread>
+          </thead>
           <tbody className="text-gray-600 divide-y">
             {allShipmentsdata?.map((shipment, idx) => (
               <tr key={idx}>
@@ -68,30 +50,30 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
                   {shipment.sender.slice(0, 15)}...
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.reciever.slice(0, 15)}...
+                  {shipment.reciever.slice(0, 15)}...
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {converTime(shipment.pickupTime)}
+                  {convertTime(shipment.pickupTime)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.distance} Km
+                  {shipment.distance} Km
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.price}
+                  {shipment.price}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.deliveryTime}
-                </td>     
-                <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.isPaid ? " Completed" : "Not Completed"}
+                  {shipment.deliveryTime}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                {shipment.status == 0
-                  ? "Pending"
-                  : shipment.status == 1
-                  ? "IN_TRANSIT"
-                  : "Delivered"}
-                </td>                          
+                  {shipment.isPaid ? "Completed" : "Not Completed"}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {shipment.status === 0
+                    ? "Pending"
+                    : shipment.status === 1
+                    ? "IN_TRANSIT"
+                    : "Delivered"}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -99,4 +81,4 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
       </div>
     </div>
   );
-};
+}
