@@ -52,7 +52,7 @@ export default () => {
           </div>
         </div>
         <div className="mt-10 py-10 border-t md:text-center">
-          <p>© 2022 Daulat Hussain. All rights reserved.</p>
+          <p>© 2024. All rights reserved.</p>
         </div>
       </div>
     </footer>
