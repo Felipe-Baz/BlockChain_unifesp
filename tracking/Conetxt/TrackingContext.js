@@ -7,7 +7,7 @@ import tracking from "../Conetxt/Tracking.json";
 //HARDHAT ADDRESS
 // const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 //POLYGON ADDRESS
-const ContractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const ContractABI = tracking.abi;
 
 //---FETCHING SMART CONTRACT
